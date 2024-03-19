@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TipCalculator.MainPage"
+             BackgroundColor="Salmon">
+
+    <ContentPage.Resources>
+        <Color x:Key="Primary">#e9967a</Color>
+        <Color x:Key="Text">#ffffff</Color>
+    </ContentPage.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".20*"/>
+            <RowDefinition Height=".20*"/>
+            <RowDefinition Height=".20*"/>
+            <RowDefinition Height=".20*"/>
+            <RowDefinition Height=".20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="70*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Total frame-->
+        <Frame BackgroundColor="{StaticResource Primary}"
+               Grid.Row="0"
+               Grid.ColumnSpan="2"
+               VerticalOptions="Start"
+               HeightRequest="200"
+               BorderColor="{StaticResource Primary}">
+
+            <!--Grid for the whole total frame-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".50*"/>
+                    <ColumnDefinition Width=".1*"/>
+                    <ColumnDefinition Width=".50*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".50*"/>
+                    <RowDefinition Height=".50*"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Total Per Person"
+                       Grid.ColumnSpan="3"
+                       Grid.Row="0"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Text}"
+                       FontSize="18"/>
+
+                <Label x:Name="lblGrandTotal"
+                       Text="$0.00"
+                       Grid.Column="0"
+                       Grid.RowSpan="3"
+                       TextColor="{StaticResource Text}"
+                       FontAttributes="None"
+                       FontSize="30"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+
+                <Line X1="10"
+                      Y1="30000"
+                      X2="20"
+                      Y2="30"
+                      StrokeThickness="2"
+                      Stroke="{StaticResource Text}"
+                      Grid.Column="1"
+                      Grid.RowSpan="2"/>
+
+                <!--right grid in total frame-->
+                <Grid Grid.Column="2" 
+                      Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height=".1*"/>
+                        <RowDefinition Height=".1*"/>
+                        <RowDefinition Height=".05*"/>
+                        <RowDefinition Height=".05*"/>
+                        <RowDefinition Height=".1*"/>
+                        <RowDefinition Height=".1*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Subtotal"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           TextColor="{StaticResource Text}"
+                           FontAttributes="Bold"
+                           FontSize="15"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"/>
+                    <Label Text="$0.00"
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           TextColor="{StaticResource Text}"
+                           FontAttributes="None"
+                           FontSize="15"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Tip"
+                           Grid.Row="4"
+                           Grid.Column="0"
+                           TextColor="{StaticResource Text}"
+                           FontAttributes="Bold"
+                           FontSize="15"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"/>
+                    <Label Text="$0.00"
+                           Grid.Row="5"
+                           Grid.Column="0"
+                           TextColor="{StaticResource Text}"
+                           FontAttributes="None"
+                           FontSize="15"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Center"/>
+                </Grid>
+            </Grid>
+        </Frame>
+
+        <Label Text="Enter your bill: $"
+               Grid.Row="1"
+               Grid.Column="0"
+               HeightRequest="50"
+               VerticalOptions="End"
+               VerticalTextAlignment="Center"
+               TextColor="{StaticResource Text}"
+               FontAttributes="Bold"/>
+
+        <Entry x:Name="etnEnterBillAmount"
+               Grid.Row="1"
+               Grid.Column="1"
+               HeightRequest="50"
+               VerticalOptions="End"
+               Text="0.00"
+               BackgroundColor="{StaticResource Primary}"
+               TextColor="{StaticResource Text}"
+               FontSize="15"
+               Keyboard="Numeric"
+               PlaceholderColor="{StaticResource Text}"
+               Completed="etnEnterBillAmount_Completed"/>
+
+        <Label Text="Choose your tip:"
+               Grid.Row="2"
+               Grid.Column="0"
+               HeightRequest="50"
+               VerticalOptions="Center"
+               VerticalTextAlignment="Center"
+               TextColor="{StaticResource Text}"
+               FontAttributes="Bold"/>
+
+        <Button Text="15%"
+                BackgroundColor="DarkSalmon"
+                Grid.Row="2"
+                Grid.Column="1"
+                WidthRequest="75"
+                HeightRequest="75"
+                HorizontalOptions="Start"
+                FontSize="18"
+                Clicked="Button_Clicked"/>
+
+        <Button Text="20%"
+                BackgroundColor="DarkSalmon"
+                Grid.Row="2"
+                Grid.Column="1"
+                WidthRequest="75"
+                HeightRequest="75"
+                HorizontalOptions="Center"
+                FontSize="18"/>
+
+        <Button Text="25%"
+                BackgroundColor="DarkSalmon"
+                Grid.Row="2"
+                Grid.Column="1"
+                WidthRequest="75"
+                HeightRequest="75"
+                HorizontalOptions="End"
+                FontSize="18"/>
+
+        <Slider Grid.Row="3"
+                Grid.Column="1"/>
+
+        <Label Text="Tip:"
+               Grid.Row="3"
+               Grid.Column="0"
+               HeightRequest="50"
+               VerticalOptions="Center"
+               VerticalTextAlignment="Center"
+               TextColor="{StaticResource Text}"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Start"/>
+
+        <Label Text="0%"
+               Grid.Row="3"
+               Grid.Column="0"
+               HeightRequest="50"
+               VerticalOptions="Center"
+               VerticalTextAlignment="Center"
+               TextColor="{StaticResource Text}"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"/>
+
+        <Label Text="Split the total:"
+               Grid.Row="4"
+               Grid.Column="0"
+               HeightRequest="50"
+               VerticalOptions="Center"
+               VerticalTextAlignment="Center"
+               TextColor="{StaticResource Text}"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Start"/>
+
+        <Button Text="-"
+                BackgroundColor="DarkSalmon"
+                Grid.Row="4"
+                Grid.Column="1"
+                WidthRequest="75"
+                HeightRequest="75"
+                HorizontalOptions="Start"
+                FontSize="18"/>
+
+        <Button Text="0"
+                BackgroundColor="DarkSalmon"
+                Grid.Row="4"
+                Grid.Column="1"
+                WidthRequest="100"
+                HeightRequest="75"
+                HorizontalOptions="Center"
+                FontSize="18"/>
+
+
+        <Button Text="+"
+                BackgroundColor="DarkSalmon"
+                Grid.Row="4"
+                Grid.Column="1"
+                WidthRequest="75"
+                HeightRequest="75"
+                HorizontalOptions="End"
+                FontSize="18"/>
+    </Grid>
+
+</ContentPage>
