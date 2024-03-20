@@ -94,7 +94,8 @@
                            FontSize="15"
                            VerticalOptions="End"
                            HorizontalOptions="Center"/>
-                    <Label Text="$0.00"
+                    <Label x:Name="lblSubtotal"
+                           Text="$0.00"
                            Grid.Row="2"
                            Grid.Column="0"
                            TextColor="{StaticResource Text}"
@@ -110,7 +111,8 @@
                            FontSize="15"
                            VerticalOptions="End"
                            HorizontalOptions="Center"/>
-                    <Label Text="$0.00"
+                    <Label x:Name="lblTip"
+                           Text="$0.00"
                            Grid.Row="5"
                            Grid.Column="0"
                            TextColor="{StaticResource Text}"
