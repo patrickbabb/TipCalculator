@@ -163,7 +163,7 @@
                 HeightRequest="75"
                 HorizontalOptions="Start"
                 FontSize="18"
-                Clicked="Button_Clicked"/>
+                Clicked="Button_Clicked15"/>
 
         <Button Text="20%"
                 BackgroundColor="DarkSalmon"
@@ -172,7 +172,8 @@
                 WidthRequest="75"
                 HeightRequest="75"
                 HorizontalOptions="Center"
-                FontSize="18"/>
+                FontSize="18"
+                Clicked="Button_Clicked20"/>
 
         <Button Text="25%"
                 BackgroundColor="DarkSalmon"
@@ -181,11 +182,16 @@
                 WidthRequest="75"
                 HeightRequest="75"
                 HorizontalOptions="End"
-                FontSize="18"/>
+                FontSize="18"
+                Clicked="Button_Clicked25"/>
 
-        <Slider Grid.Row="3"
-                Grid.Column="1"/>
-
+        <Slider x:Name="sldTipPercent"
+                Grid.Row="3"
+                Grid.Column="1"
+                Maximum="100"
+                Minimum="0"
+                ValueChanged="sldTipPercent_ValueChanged"/>
+                
         <Label Text="Tip:"
                Grid.Row="3"
                Grid.Column="0"
@@ -196,7 +202,8 @@
                FontAttributes="Bold"
                HorizontalTextAlignment="Start"/>
 
-        <Label Text="0%"
+        <Label x:Name="lblTipSlider"
+               Text="0%"
                Grid.Row="3"
                Grid.Column="0"
                HeightRequest="50"
@@ -216,16 +223,19 @@
                FontAttributes="Bold"
                HorizontalTextAlignment="Start"/>
 
-        <Button Text="-"
+        <Button x:Name="btnRemovePerson"
+                Text="-"
                 BackgroundColor="DarkSalmon"
                 Grid.Row="4"
                 Grid.Column="1"
                 WidthRequest="75"
                 HeightRequest="75"
                 HorizontalOptions="Start"
-                FontSize="18"/>
+                FontSize="18"
+                Clicked="btnRemovePerson_Clicked"/>
 
-        <Button Text="0"
+        <Button x:Name="lblPartySize"
+                Text="0"
                 BackgroundColor="DarkSalmon"
                 Grid.Row="4"
                 Grid.Column="1"
@@ -235,14 +245,16 @@
                 FontSize="18"/>
 
 
-        <Button Text="+"
+        <Button x:Name="btnAddPerson"
+                Text="+"
                 BackgroundColor="DarkSalmon"
                 Grid.Row="4"
                 Grid.Column="1"
                 WidthRequest="75"
                 HeightRequest="75"
                 HorizontalOptions="End"
-                FontSize="18"/>
+                FontSize="18"
+                Clicked="btnAddPerson_Clicked"/>
     </Grid>
 
 </ContentPage>
