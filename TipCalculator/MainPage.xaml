@@ -138,7 +138,6 @@
                Grid.Column="1"
                HeightRequest="50"
                VerticalOptions="End"
-               Text="0.00"
                BackgroundColor="{StaticResource Primary}"
                TextColor="{StaticResource Text}"
                FontSize="15"
@@ -191,7 +190,7 @@
                 Maximum="100"
                 Minimum="0"
                 ValueChanged="sldTipPercent_ValueChanged"/>
-                
+
         <Label Text="Tip:"
                Grid.Row="3"
                Grid.Column="0"
@@ -235,7 +234,7 @@
                 Clicked="btnRemovePerson_Clicked"/>
 
         <Button x:Name="lblPartySize"
-                Text="0"
+                Text="1"
                 BackgroundColor="DarkSalmon"
                 Grid.Row="4"
                 Grid.Column="1"
