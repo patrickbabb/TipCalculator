@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mtc="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="TipCalculator.MainPage"
-             BackgroundColor="Salmon">
+             BackgroundColor="#ff8e8e">
+
+    <ContentPage.Behaviors>
+        <mtc:StatusBarBehavior 
+            StatusBarColor="#ff4e4e" 
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
 
     <ContentPage.Resources>
-        <Color x:Key="Primary">#e9967a</Color>
+        <Color x:Key="Primary">#ff6d6d</Color>
+        <Color x:Key="Secondary">#ff6d6d</Color>
         <Color x:Key="Text">#ffffff</Color>
     </ContentPage.Resources>
 
@@ -23,12 +31,12 @@
         </Grid.ColumnDefinitions>
 
         <!--Total frame-->
-        <Frame BackgroundColor="{StaticResource Primary}"
+        <Frame BackgroundColor="{StaticResource Secondary}"
                Grid.Row="0"
                Grid.ColumnSpan="2"
                VerticalOptions="Start"
                HeightRequest="200"
-               BorderColor="{StaticResource Primary}">
+               BorderColor="{StaticResource Secondary}">
 
             <!--Grid for the whole total frame-->
             <Grid>
@@ -155,7 +163,7 @@
                FontAttributes="Bold"/>
 
         <Button Text="15%"
-                BackgroundColor="DarkSalmon"
+                BackgroundColor="{StaticResource Primary}"
                 Grid.Row="2"
                 Grid.Column="1"
                 WidthRequest="75"
@@ -165,7 +173,7 @@
                 Clicked="Button_Clicked15"/>
 
         <Button Text="20%"
-                BackgroundColor="DarkSalmon"
+                BackgroundColor="{StaticResource Primary}"
                 Grid.Row="2"
                 Grid.Column="1"
                 WidthRequest="75"
@@ -175,7 +183,7 @@
                 Clicked="Button_Clicked20"/>
 
         <Button Text="25%"
-                BackgroundColor="DarkSalmon"
+                BackgroundColor="{StaticResource Primary}"
                 Grid.Row="2"
                 Grid.Column="1"
                 WidthRequest="75"
@@ -189,7 +197,8 @@
                 Grid.Column="1"
                 Maximum="100"
                 Minimum="0"
-                ValueChanged="sldTipPercent_ValueChanged"/>
+                ValueChanged="sldTipPercent_ValueChanged"
+                ThumbColor="#ff4e4e"/>
 
         <Label Text="Tip:"
                Grid.Row="3"
@@ -224,7 +233,7 @@
 
         <Button x:Name="btnRemovePerson"
                 Text="-"
-                BackgroundColor="DarkSalmon"
+                BackgroundColor="{StaticResource Primary}"
                 Grid.Row="4"
                 Grid.Column="1"
                 WidthRequest="75"
@@ -235,7 +244,7 @@
 
         <Button x:Name="lblPartySize"
                 Text="1"
-                BackgroundColor="DarkSalmon"
+                BackgroundColor="{StaticResource Primary}"
                 Grid.Row="4"
                 Grid.Column="1"
                 WidthRequest="100"
@@ -246,7 +255,7 @@
 
         <Button x:Name="btnAddPerson"
                 Text="+"
-                BackgroundColor="DarkSalmon"
+                BackgroundColor="{StaticResource Primary}"
                 Grid.Row="4"
                 Grid.Column="1"
                 WidthRequest="75"
